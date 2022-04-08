@@ -1,4 +1,5 @@
 from random import random, randint
+from Draw import Draw
 
 
 class Build:
@@ -11,18 +12,20 @@ class Build:
         self.n = n_
         self.m = len(edges_)
         nodes_ = [i for i in range(self.n + 1)]
-
         for i in range(1, self.n + 1):
             nodes_[i] = self.Pt(random(), random())
 
         self.nodes = nodes_
-
         self.edges = edges_
         self.g = [[] for i in range(self.n + 1)]
 
         for x, y in edges_:
             self.g[x].append(y)
             self.g[y].append(x)
+
+    def draw(self):
+        d = Draw(self.nodes, self.edges)
+        d.draw()
 
     def area(self, a, b, c):
         return (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x)
@@ -61,7 +64,7 @@ class Build:
         return cnt
 
 
-
+""" 
 n = 6
 edges = [
     (1, 2),
@@ -74,10 +77,23 @@ edges = [
     (3, 6),
     (5, 6)
 ]
+"""
 
-g = Build(n, edges)
+n = 11
+edges = [
+    (1, 4), (1, 8), (1, 11), (2, 3), (2, 4),
+    (3, 4), (3, 5), (4, 5), (4, 7),
+    (5, 6), (6, 7), (6, 9), (7, 8), (7, 9),
+    (8, 9), (8, 11), (9, 10), (10, 11),
+]
 
-print(g.count_each())
+cnt = 3
+i = 0
+while cnt:
+    g = Build(n, edges)
+    if g.count_each() < 1:
+        cnt -= 1
+        g.draw()
+    i += 1
 
-for i in range(1, n + 1):
-    print(g.nodes[i].x, g.nodes[i].y)
+print(i)
