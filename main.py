@@ -49,7 +49,7 @@ class DrawGraph:
         d.draw()
 
     def area(self, a, b, c):
-        return (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x)
+        return (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x) + 0
 
     def intersect(self, a, b, c, d):
         if a > b:
