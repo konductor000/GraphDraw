@@ -1,8 +1,9 @@
 from random import random, randint
 from Draw import Draw
+from math import exp
 
 
-class Build:
+class DrawGraph:
     class Pt:
         def __init__(self, x, y):
             self.x = x
@@ -22,6 +23,26 @@ class Build:
         for x, y in edges_:
             self.g[x].append(y)
             self.g[y].append(x)
+
+        self.build()
+        self.draw()
+
+    def build(self):
+        k = 1000
+        ans = self.count_each()
+        t = 1
+        for i in range(k):
+            t *= 0.99
+            a, x, y = randint(1, n), random(), random()
+            old = self.nodes[a]
+            self.nodes[a] = self.Pt(x, y)
+
+            val = self.count_each()
+            if val < ans or random() < exp((ans - val) / t):
+                ans = val
+                print(val)
+            else:
+                self.nodes[a] = old
 
     def draw(self):
         d = Draw(self.nodes, self.edges)
@@ -87,13 +108,4 @@ edges = [
     (8, 9), (8, 11), (9, 10), (10, 11),
 ]
 
-cnt = 3
-i = 0
-while cnt:
-    g = Build(n, edges)
-    if g.count_each() < 1:
-        cnt -= 1
-        g.draw()
-    i += 1
-
-print(i, )
+DrawGraph(n, edges)
