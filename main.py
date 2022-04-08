@@ -96,4 +96,4 @@ while cnt:
         g.draw()
     i += 1
 
-print(i)
+print(i, )
