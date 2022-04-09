@@ -61,7 +61,7 @@ class Draw:
 
         fig = go.Figure(data=[edge_trace, node_trace],
                         layout=go.Layout(
-                            title='<br>Тестовый граф для NTA',
+                            title='<br> Graph',
                             titlefont_size=16,
                             showlegend=False,
                             xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
