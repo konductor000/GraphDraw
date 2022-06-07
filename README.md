@@ -45,10 +45,10 @@ DrawGraph(n, edges)
 ### Examples
 
 - Simple Graph
-  ![Project Image](C:\Users\skoro\PycharmProjects\GraphDraw\images\pic2.PNG)
+  ![Project Image](https://github.com/konductor000/GraphDraw/blob/master/images/pic2.PNG)
 
 - Binary Tree
-  ![Project Image](C:\Users\skoro\PycharmProjects\GraphDraw\images\pic1.PNG)
+  ![Project Image](https://github.com/konductor000/GraphDraw/blob/master/images/pic1.PNG)
 
 
 ---
@@ -56,10 +56,10 @@ DrawGraph(n, edges)
 ### How does it work
 
 
-To arrange the nodes on the plane, I used the annealing method.
+To arrange the nodes on the plane, I used the **annealing method**.
 Initially, the nodes are placed randomly and subsequently
 moved to a random position, with each iteration, intersections
 are counted, the fewer intersections, the higher the chance
 that the node will be moved
 
-To display the result I used the plotly library
+To display the result I used the **plotly** library
