@@ -52,7 +52,7 @@ class DrawGraph:
         # calculating number of intersections and average sine of every node
         intersections, angle = self.count_each_val()
         # calculating the value
-        best_ans = intersections - angle
+        best_ans = intersections - angle / 4
         # annealing
         t = 1
         for i in range(self.param):
@@ -62,7 +62,7 @@ class DrawGraph:
             self.nodes[a] = self.Point(x, y)
 
             intersections, angle = self.count_each_val()
-            value = intersections - angle
+            value = intersections - angle / 4
 
             if value < best_ans or random() < exp((best_ans - value) / t):
                 best_ans = value
@@ -70,6 +70,8 @@ class DrawGraph:
                 self.angle_vals[a] = angle
             else:
                 self.nodes[a] = old
+
+        print(best_ans)
 
     def draw_graph(self):
         d = Draw(self.nodes, self.edges)
@@ -103,6 +105,8 @@ class DrawGraph:
         return abs(sine)
 
     def count_single_intersection(self, a, b, c, d):
+        if str(a) == str(c) or str(a) == str(d) or str(b) == str(c) or str(b) == str(d):
+            return False
         return \
             self.intersect(a.x, b.x, c.x, d.x) \
             and self.intersect(a.y, b.y, c.y, d.y) \
@@ -159,7 +163,7 @@ class DrawGraph:
                 seg2 = sorted([{float(i) for i in str(self.nodes[edge1]).split()},
                                {float(i) for i in str(self.nodes[edge2]).split()}])
 
-                if seg1 == seg2:
+                if seg1[0] in seg2 and seg1[1] in seg2:
                     continue
 
                 elif seg1[0] in seg2 or seg1[1] in seg2:
