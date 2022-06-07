@@ -18,12 +18,12 @@ DrawGraph is a utility that allows you to draw a graph using its edges
 #### Clone the repository
 
 ```html
-    git clone https://github.com/konductor000/GraphDraw.git
+git clone https://github.com/konductor000/GraphDraw.git
 ```
 #### You will also need to install Plotly
 
 ``` html
-   pip install plotly 
+pip install plotly 
 ```
 
 ### How To Use
