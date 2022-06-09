@@ -63,3 +63,7 @@ are counted, the fewer intersections, the higher the chance
 that the node will be moved
 
 To display the result I used the **plotly** library
+
+DrawGraph.py file creates a plane with nodes.
+
+Draw.py file draws graph using plotly
